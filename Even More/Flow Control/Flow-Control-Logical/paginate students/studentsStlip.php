@@ -8,6 +8,6 @@ if(isset($_GET) && !empty($_GET) && sizeof($_GET) === 4){
 }
 
 function get3 ($names, $ages){
-    
+
 }
 ?>
