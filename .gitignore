@@ -14,7 +14,9 @@
 *.docx
 *.avi
 *.mp4
+.doc#
 .docx#
+.odt
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
