@@ -1,0 +1,19 @@
+<?php
+$number = floatval(readline());
+$str = 'ATCGTTAGGG';
+$counter = 0;
+
+for ($i = 0; $i < $number; $i++) {
+    if ($i % 4 == 0) {
+        echo "**{$str[$counter % 10]}{$str[$counter % 10 + 1]}**" . PHP_EOL;
+    } elseif ($i % 4 == 1) {
+        echo("*{$str[$counter % 10]}--{$str[$counter % 10 + 1]}*") . PHP_EOL;
+    } elseif ($i % 4 == 2) {
+        echo("{$str[$counter % 10]}----{$str[$counter % 10 + 1]}") . PHP_EOL;
+    } elseif ($i % 4 == 3) {
+        echo("*{$str[$counter % 10]}--{$str[$counter % 10 + 1]}*") . PHP_EOL;
+    }
+
+    $counter += 2;
+}
+?>
