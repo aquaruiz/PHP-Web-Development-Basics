@@ -1,7 +1,7 @@
 <?php
 function cut($x)
 {
-    return $x / 4;
+    return floatval($x) / 4;
 }
 
 function lap($x)
@@ -26,7 +26,7 @@ function xray($x)
 
 function wash($x)
 {
-    return intval($x);
+    return (int)$x;
 }
 
 $input = array_map("floatval", explode(", ", readline()));

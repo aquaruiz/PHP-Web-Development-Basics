@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Obache
- * Date: 05.10.2018
- * Time: 21:49
- */
+require "Number.php";
+
+$input = intval(readline());
+$number = new Number($input);
+echo $number->giveLastDigitName();
+?>

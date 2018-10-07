@@ -12,7 +12,7 @@ function multiply($a, $b)
 function divide($a, $b)
 {
     if ($b == 0) {
-        return "Division by zero.";
+        return "Caught exception: Division by zero.";
     }
 
     return $a / $b;
@@ -37,7 +37,7 @@ function factorial($a)
 function root($a)
 {
     if ($a < 0) {
-        return "Can't take the root of a negative number";
+        return "Caught exception: Can't take the root of a negative number";
     }
 
     return sqrt($a);
@@ -67,7 +67,7 @@ function triangleArea($a, $b, $c)
 function quadratic($a, $b, $c)
 {
     if ($a == 0) {
-        return "Division by zero.";
+        return "Caught exception: Division by zero.";
     }
 
     $x1 = 0;
@@ -190,8 +190,8 @@ function executeLastCommand($lastCommand, $results)
                     array_shift($results);
                     array_shift($results);
                 } else {
-                    executeLastCommand(readline(), $initialResults);
-                    return $initialResults;
+//                    executeLastCommand(readline(), $initialResults);
+                    return "error";
                 }
 //                }
             }
@@ -227,8 +227,8 @@ function executeLastCommand($lastCommand, $results)
                     array_shift($results);
                     array_shift($results);
                 } else {
-                    executeLastCommand(readline(), $initialResults);
-                    return $initialResults;
+//                    executeLastCommand(readline(), $initialResults);
+                    return "error";
                 }
             }
 
@@ -283,8 +283,8 @@ function executeLastCommand($lastCommand, $results)
                     array_shift($results);
                     array_shift($results);
                 } else {
-                    executeLastCommand(readline(), $initialResults);
-                    return $initialResults;
+//                    executeLastCommand(readline(), $initialResults);
+                    return "error";
                 }
 //                }
             }
@@ -305,8 +305,8 @@ function executeLastCommand($lastCommand, $results)
                     array_shift($results);
                     array_shift($results);
                 } else {
-                    executeLastCommand(readline(), $initialResults);
-                    return $initialResults;
+//                    executeLastCommand(readline(), $initialResults);
+                    return "error";
                 }
 //            }
 
@@ -317,7 +317,11 @@ function executeLastCommand($lastCommand, $results)
     return $results;
 }
 
-$results = executeLastCommand($lastCommand, $results);
+$newresults = executeLastCommand($lastCommand, $results);
 
-echo implode(", ", $results);
+if($newresults == "error"){
+    $newresults = executeLastCommand(readline(), $results);
+}
+
+echo implode(", ", $newresults);
 ?>
