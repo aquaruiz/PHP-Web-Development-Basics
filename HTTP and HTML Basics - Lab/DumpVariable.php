@@ -20,7 +20,7 @@ if (isset($_GET['var'])) {
 			var_dump(floatval($var));
 		}
 	} else {
-		echo ctype($var);
+		echo gettype($var);
 	}
 }
 ?>
