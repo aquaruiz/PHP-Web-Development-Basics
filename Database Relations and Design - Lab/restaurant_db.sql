@@ -9,6 +9,6 @@ SELECT e.employee_id, e.first_name, e.last_name, d.name AS 'department_name' FRO
 SELECT e.first_name, e.last_name, e.hire_date, d.name FROM employees e JOIN departments d ON e.department_id = d.department_id
 WHERE date(e.hire_date) > '1999-01-01' AND d.name IN ('Sales', 'Finance') ORDER BY e.hire_date ASC;
 
-SELECT COUNT(c.country_code) as country_count FROM countries as c LEFT JOIN mountains_countries as m_c ON c.country_code = m_c.country_code WHERE m_c.mountain_id IS NULL;
+SELECT COUNT(c.country_code) as country_count FROM countries as c LEFT JOIN mountains_countries AS m_c ON c.country_code = m_c.country_code WHERE m_c.mountain_id IS NULL;
 
 SELECT AVG(`salary`) AS AV FROM `employees` GROUP BY `department_id` ORDER BY AV LIMIT 1;
