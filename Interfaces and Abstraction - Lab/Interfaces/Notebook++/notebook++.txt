@@ -1,0 +1,5 @@
+1. What abstract class can Notebook++ extend? 
+--->Computer
+
+2. Which interfaces should Notebook++ implement?
+-->all of it

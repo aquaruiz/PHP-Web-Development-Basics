@@ -3,7 +3,7 @@ declare(strict_types = 1);
 /**
  * 
  */
-class Circle implements Area
+class Circle implements Area, Circumference
 {
 	private $radius;
 
@@ -16,13 +16,17 @@ class Circle implements Area
 		return pi() * sqrt($this->radius);
 	}
 
+	public function getCircumference(){
+		return 2 * pi() * $this->radius;
+	}
+
 	private function getClassName(){
 		$refl = new ReflectionClass($this);
 		return $refl->getName();
 	}
 
 	public function __toString(){
-		return $this->getClassName() . ", radius = {$this->radius} mm, area = {$this->getSurface()} mm" . PHP_EOL;
+		return $this->getClassName() . ", radius = {$this->radius} mm:\r\nArea = {$this->getSurface()} mm\r\nCircumference = {$this->getCircumference()} mm" . PHP_EOL;
 	}
 }
 ?>
