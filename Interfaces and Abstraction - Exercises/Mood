@@ -1,0 +1,192 @@
+<?php
+ 
+interface Players{
+    public function hashedPassword();
+}
+
+class Demon implements Players{
+ 
+    private $username;
+    private $special_points;
+    private $level;
+    private $password;
+    public function __construct( $username,  $special_points,  $level)
+    {
+        $this->setUsername($username);
+        $this->special_points=floatval($special_points);
+//        var_dump($this->special_points);
+        $this->setLevel($level,$special_points);
+        $this->hashedPassword();
+    }
+ 
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+ 
+    public function setCharType(): void
+    {
+        $this->char_type = "Demon";
+    }
+    public function setSpecialPoints(float $special_points): void
+    {
+        // var_dump($special_points);
+        $this->special_points = (float)$special_points;
+        // var_dump($this->special_points);
+    }
+    public function setLevel( $level): void
+    {
+        $this->level = $level;
+    }
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    public function getCharType(): string
+    {
+        return $this->char_type;
+    }
+    public function getSpecialPoints(): float
+    {
+        return $this->special_points;
+    }
+    public function getLevel(): float
+    {
+        return $this->level;
+    }
+ 
+    public function hashedPassword()
+    {
+        $this->password=217*strlen($this->username);
+    }
+    public function getPassword():int
+    {
+        return $this->password;
+    }
+    public function __toString(){
+        $count=explode(".",$this->special_points);
+        $format=$count[1];
+        $level=number_format($this->getLevel(), strlen($format),'.','');
+        $spl=($this->special_points*$level);
+        $spl=number_format($spl,1,'.','');
+        return '"'.$this->getUsername().'" | "'.$this->getPassword().'" -> Demon '.PHP_EOL.$spl;
+    }
+}
+class Archangel implements Players{
+//<username> | <character type> | <special points> | <level>
+    /**
+     * @var string
+     */
+    private $username;
+    /**
+     * @var string
+     */
+    private $char_type;
+    /**
+     * @var int
+     */
+    private $special_points;
+    /**
+     * @var int
+     */
+    private $level;
+    /**
+     * @var string
+     */
+    private $password;
+    /**
+     * Demon constructor.
+     * @param string $username
+     * @param string $char_type
+     * @param int $special_points
+     * @param int $level
+     */
+    public function __construct(string $username, $special_points, $level)
+    {
+        $this->setUsername($username);
+        $this->setSpecialPoints($special_points);
+        $this->setLevel($level,$special_points);
+        $this->hashedPassword();
+    }
+    /**
+     * @param string $username
+     */
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+ 
+    /**
+     * @param string $char_type
+     */
+    public function setCharType(string $char_type): void
+    {
+        $this->char_type = "Archangel";
+    }
+ 
+    /**
+     * @param int $special_points
+     */
+    public function setSpecialPoints($special_points): void
+    {
+        $this->special_points = intval($special_points);
+    }
+ 
+    /**
+     * @param int $level
+     */
+    public function setLevel($level, $special_points): void
+    {
+        $this->level = $level*$special_points;
+    }
+ 
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+ 
+    /**
+     * @return string
+     */
+    public function getCharType(): string
+    {
+        return $this->char_type;
+    }
+ 
+    /**
+     * @return int
+     */
+    public function getSpecialPoints(): int
+    {
+        return $this->special_points;
+    }
+ 
+    /**
+     * @return string
+     */
+    public function getLevel(): int
+    {
+        return $this->level;
+    }
+ 
+    public function hashedPassword()
+    {
+        $total=strlen($this->username)*21;
+        $this->password='"'.strrev($this->username).$total.'"';
+    }
+    public function getPassword():string
+    {
+        return $this->password;
+    }
+    public function __toString(){
+        return '"'.$this->getUsername().'" | '.$this->getPassword().' -> Archangel '.PHP_EOL.$this->getLevel();
+    }
+}
+list($username,$char_type,$special_points,$level)=explode(" | ",readline());
+
+ 
+$player =new $char_type($username,$special_points,$level);
+echo $player;
