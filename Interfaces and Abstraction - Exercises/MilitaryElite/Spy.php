@@ -8,7 +8,7 @@ class Spy extends Soldier
 {
 	private $codeNumber;
 
-	public function __construct(string $id, string $firstName, string $lastName, string $codeNumber)	{
+	public function __construct(?string $id, ?string $firstName, ?string $lastName, ?int $codeNumber)	{
 		parent::__construct($id, $firstName, $lastName);
 		$this->codeNumber = $codeNumber;
 	}

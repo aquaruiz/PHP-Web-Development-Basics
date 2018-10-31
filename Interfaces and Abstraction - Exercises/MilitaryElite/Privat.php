@@ -8,7 +8,7 @@ class Privat extends Soldier
 {
 	protected $salary;
 
-	public function __construct(string $id, string $firstName, string $lastName, float $salary)
+	public function __construct(?string $id, ?string $firstName, ?string $lastName, ?float $salary)
 	{
 		parent::__construct($id, $firstName, $lastName);
 		$this->salary = $salary; 
@@ -20,7 +20,8 @@ class Privat extends Soldier
 
 	public function __toString(){
 		$output = parent::__toString();
-		$output .= " Salary: {$this->salary}";
+		$salary = number_format($this->salary, 2, ".", "");
+		$output .= " Salary: {$salary}";
 		return $output;
 	}
 }

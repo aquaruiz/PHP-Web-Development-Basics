@@ -9,7 +9,7 @@ class Mission
 	private $codeName;
 	private $state;
 
-	public function __construct(string $codeName, string $state = "inProgress")
+	public function __construct(?string $codeName, string $state = "inProgress")
 	{
 		$this->codeName = $codeName;
 		$this->state = $state;
@@ -19,7 +19,7 @@ class Mission
 		$this->state = "finished";
 	}
 
-	public function getCodeName{
+	public function getCodeName(){
 		return $this->codeName;
 	}
 

@@ -8,7 +8,7 @@ class LeutenantGeneral extends Privat
 {
 	protected $privats;
 
-	public function __construct(string $id, string $firstName, string $lastName, float $salary)
+	public function __construct(?string $id, ?string $firstName, ?string $lastName, ?float $salary)
 	{
 		parent::__construct($id, $firstName, $lastName, $salary);
 		$this->privats = []; 
@@ -20,11 +20,11 @@ class LeutenantGeneral extends Privat
 
 	public function __toString(){
 		$output = parent::__toString().PHP_EOL;
-		$output = "Privates:".PHP_EOL;
+		$output .= "Privates:".PHP_EOL;
 
 		foreach ($this->privats as $privat) {
-			$privateId = $privat->getId();
-			$output .= " $privateId".PHP_EOL;
+			$output .= "  ";
+			$output .= $privat->__toString().PHP_EOL;
 		}
 
 		return $output;

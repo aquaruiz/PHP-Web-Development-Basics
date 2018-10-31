@@ -5,7 +5,7 @@ declare(strict_types = 1);
  */
 class Engineer extends SpecialisedSoldier
 {
-	private setRepairs = [];
+	private $setRepairs = [];
 
 	public function addRepair(Repair $repair){
 		$this->setRepairs[] = $repair;
@@ -16,7 +16,7 @@ class Engineer extends SpecialisedSoldier
 		$output .= "Repairs:".PHP_EOL;
 
 		foreach ($this->setRepairs as $repair) {
-			$output .= " {$repair->getPartName()}".PHP_EOL;
+			$output .= " Part Name: {$repair->getPartName()} Hours Worked: {$repair->getHours()}".PHP_EOL;
 		}
 
 		return $output;

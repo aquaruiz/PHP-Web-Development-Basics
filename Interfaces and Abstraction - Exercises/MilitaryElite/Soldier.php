@@ -10,11 +10,11 @@ class Soldier
 	protected $firstName;
 	protected $lastName;
 	
-	public function __construct(string $id, string $firstName, string $lastName)
+	public function __construct(?string $id, ?string $firstName, ?string $lastName)
 	{
 		$this->id = $id;
 		$this->firstName = $firstName;
-		$this->lastName;
+		$this->lastName = $lastName;
 	}
 
 	public function __toString(){
