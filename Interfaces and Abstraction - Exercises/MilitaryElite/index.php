@@ -90,7 +90,7 @@ while (($input = readline(PHP_EOL)) != "End") {
 			case 'Spy':
 				[$id, $firstName, $lastName, $codeNumber] = $input;
 				$currentSpy = new Spy($id, $firstName, $lastName, intval($codeNumber));
-				echo $currentSpy;
+				echo $currentSpy.PHP_EOL;
 				break;
 			default:
 				// echo "Error!";

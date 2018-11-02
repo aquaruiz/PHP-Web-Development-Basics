@@ -1,0 +1,34 @@
+1. Ships
+1.-1. Общите методи в интерфейс
+1.0. Общите параметри в абстрактен клас.
+1.1. class Fregate
+1.2. class Cruiser
+1.3. class Deadnaught
+
+2. StarSystems
+2.0. interface SolarSystemInterface
+2.1. class StarSystem(name)
+2.2. - Neighbours (име на съседната система -> гориво)
+
+3. Commands
+3.1. interface CommandInterface ( execute() )
+3.2. Create
+3.3. Attack
+3.4. PlotJump
+3.5. StatusReport
+3.6. Over
+
+4. Projectiles
+4.1. interface ProjectileInterface ( attack() )
+4.2. PenetrationShell
+4.3. ShieldRever
+4.4. Laser
+
+5. Enhancements
+5.1. interface EnhcancementInterface ( giveBonus() )
+5.2. ThanixCannon
+5.3. KineticBarrier
+5.4. ExtendedFuelCells
+
+6. Galaxy (GalaxyInterface)
+7. Game

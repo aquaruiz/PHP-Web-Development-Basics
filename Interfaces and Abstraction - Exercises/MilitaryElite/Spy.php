@@ -16,6 +16,7 @@ class Spy extends Soldier
 	public function __toString(){
 		$output = parent::__toString().PHP_EOL;
 		$output .= "Code Number: {$this->codeNumber}";
+		return $output;
 	}
 }
 ?>
