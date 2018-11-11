@@ -24,11 +24,11 @@ class BookDTO
     /**
      * @var GenreDTO
      */
-    private $genreId;
+    private $genre;
     /**
      * @var UserDTO
      */
-    private $userId;
+    private $user;
     private $addedOn;
 
     /**
@@ -144,33 +144,33 @@ class BookDTO
     /**
      * @return GenreDTO
      */
-    public function getGenreId(): GenreDTO
+    public function getGenre(): GenreDTO
     {
-        return $this->genreId;
+        return $this->genre;
     }
 
     /**
-     * @param GenreDTO $genreId
+     * @param GenreDTO $genre
      */
-    public function setGenreId(GenreDTO $genreId): void
+    public function setGenre(GenreDTO $genre): void
     {
-        $this->genreId = $genreId;
+        $this->genre = $genre;
     }
 
     /**
      * @return UserDTO
      */
-    public function getUserId(): UserDTO
+    public function getUser(): UserDTO
     {
-        return $this->userId;
+        return $this->user;
     }
 
     /**
-     * @param UserDTO $userId
+     * @param UserDTO $user
      */
-    public function setUserId(UserDTO $userId): void
+    public function setUser(UserDTO $user): void
     {
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
     /**

@@ -1,12 +1,12 @@
-<?php /** @var \App\Data\EditDTO $data */ ?>
+<?php /** @var \App\Data\BookDTO $data */?>
 
 <h1>VIEW BOOK</h1>
 
-<p><a href="profile.php">My Profile</a></p>
+<p><a href="my_books.php">My Profile</a></p>
 <div>
-    <p><b>Book Title: </b><?= $data->getBook()->getTitle(); ?></p>
-    <p><b>Book Author: </b><?= $data->getBook()->getTitle(); ?></p>
-    <p><b>Description: </b><?= $data->getBook()->getTitle(); ?></p>
-    <p><b>Genre: </b><?= $data->getBook()->getTitle(); ?></p>
-    <p><img src="<?= $data->getBook()->getTitle(); ?>" alt="book image"/></p>
+    <p><b>Book Title: </b><?= $data->getTitle(); ?></p>
+    <p><b>Book Author: </b><?= $data->getAuthor(); ?></p>
+    <p><b>Description: </b><?= $data->getDescription(); ?></p>
+    <p><b>Genre: </b><?= $data->getGenre()->getName(); ?></p>
+    <p><img src="<?= $data->getImage(); ?>" alt="book image"/></p>
 </div>

@@ -57,7 +57,7 @@ class UserHttpHandler extends UserHttpHandlerAbstract
         try {
             $currentUser = $userService->login($formData['username'], $formData['password']);
             $_SESSION['id'] = $currentUser->getId();
-            $this->redirect("dashboard.php");
+            $this->redirect("all_books.php");
         } catch (\Exception $ex) {
             $user = $this->dataBinder->bind($formData, UserDTO::class);
             $this->render("users/login", $user, [$ex->getMessage()]);

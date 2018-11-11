@@ -59,16 +59,16 @@ class BookRepository implements BookRepositoryInterface
             /** @var BookDTO $book */
             $book = $this->dataBinder->bind($row, BookDTO::class);
             /** @var UserDTO $userId */
-            $author = $this->dataBinder->bind($row, UserDTO::class);
+            $user = $this->dataBinder->bind($row, UserDTO::class);
             /** @var GenreDTO $genre */
             $genre = $this->dataBinder->bind($row, GenreDTO::class);
 
             $book->setId($row['book_id']);
-            $author->setId($row['user_id']);
+            $user->setId($row['user_id']);
             $genre->setId($row['genre_id']);
 
-            $book->setUserId($author);
-            $book->setGenreId($genre);
+            $book->setUser($user);
+            $book->setGenre($genre);
 
             yield $book;
         }
@@ -95,24 +95,24 @@ class BookRepository implements BookRepositoryInterface
             INNER JOIN users users ON books.user_id = users.id
             INNER JOIN genres genres ON books.genre_id = genres.id
             WHERE books.id = ?
-            ORDER BY books.title DESC, books.author DESC 
         ")->execute([$id])
             ->fetch()
             ->current();
 
         /** @var BookDTO $book */
         $book = $this->dataBinder->bind($row, BookDTO::class);
-        /** @var UserDTO $author */
-        $author = $this->dataBinder->bind($row, UserDTO::class);
-        /** @var GenreDTO $category */
-        $category = $this->dataBinder->bind($row, GenreDTO::class);
+        /** @var UserDTO $user */
+        $user = $this->dataBinder->bind($row, UserDTO::class);
+
+        /** @var GenreDTO $genre */
+        $genre = $this->dataBinder->bind($row, GenreDTO::class);
 
         $book->setId($row['book_id']);
-        $author->setId($row['user_id']);
-        $category->setId($row['genre_id']);
+        $user->setId($row['user_id']);
+        $genre->setId($row['genre_id']);
 
-        $book->setAuthor($author);
-        $book->setGenreId($category);
+        $book->setUser($user);
+        $book->setGenre($genre);
 
         return $book;
     }
@@ -121,7 +121,6 @@ class BookRepository implements BookRepositoryInterface
     {
         $this->db->query("
                 INSERT INTO books (
-                              id, 
                               title, 
                               author,
                               description, 
@@ -130,14 +129,14 @@ class BookRepository implements BookRepositoryInterface
                               genre_id,
                               added_on
                               )
-                VALUES (?,?,?,?,?,?,?,?)
+                VALUES (?,?,?,?,?,?,?)
             ")->execute([
             $bookDTO->getTitle(),
             $bookDTO->getAuthor(),
             $bookDTO->getDescription(),
             $bookDTO->getImage(),
-            $bookDTO->getUserId()->getId(),
-            $bookDTO->getGenreId()->getId(),
+            $bookDTO->getUser()->getId(),
+            $bookDTO->getGenre()->getId(),
             $bookDTO->getAddedOn()
         ]);
 
@@ -161,9 +160,9 @@ class BookRepository implements BookRepositoryInterface
             $bookDTO->getTitle(),
             $bookDTO->getAuthor(),
             $bookDTO->getDescription(),
-            $bookDTO->getId(),
-            $bookDTO->getUserId()->getId(),
-            $bookDTO->getGenreId()->getId(),
+            $bookDTO->getImage(),
+            $bookDTO->getUser()->getId(),
+            $bookDTO->getGenre()->getId(),
             $bookDTO->getAddedOn(),
             $id
         ]);
@@ -207,16 +206,16 @@ class BookRepository implements BookRepositoryInterface
             /** @var BookDTO $book */
             $book = $this->dataBinder->bind($row, BookDTO::class);
             /** @var UserDTO $userId */
-            $author = $this->dataBinder->bind($row, UserDTO::class);
+            $user = $this->dataBinder->bind($row, UserDTO::class);
             /** @var GenreDTO $genre */
             $genre = $this->dataBinder->bind($row, GenreDTO::class);
 
             $book->setId($row['book_id']);
-            $author->setId($row['user_id']);
+            $user->setId($row['user_id']);
             $genre->setId($row['genre_id']);
 
-            $book->setUserId($author);
-            $book->setGenreId($genre);
+            $book->setUser($user);
+            $book->setGenre($genre);
 
             yield $book;
         }

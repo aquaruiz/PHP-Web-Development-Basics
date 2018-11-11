@@ -10,4 +10,3 @@ $dataBinder = new \Core\DataBinder();
 $userRepository = new \App\Repository\UserRepository($db);
 $userService = new \App\Service\UserService($userRepository);
 $userHttpHandler = new \App\Http\UserHttpHandler($template, $dataBinder);
-$userHttpHandler->registerUser($userService, $_POST);

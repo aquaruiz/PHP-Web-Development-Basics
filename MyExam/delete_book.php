@@ -2,7 +2,7 @@
 
 require_once "common.php";
 
-$taskService = new \App\Service\BookService(new \App\Repository\BookRepository($db, new \Core\DataBinder()));
+$bookService = new \App\Service\BookService(new \App\Repository\BookRepository($db, new \Core\DataBinder()));
 
-$taskHttpHandler = new \App\Http\BookHttpHandler($template, new \Core\DataBinder());
-$taskHttpHandler->delete($taskService, $_GET);
+$bookHttpHandler = new \App\Http\BookHttpHandler($template, new \Core\DataBinder());
+$bookHttpHandler->delete($bookService, $_GET);

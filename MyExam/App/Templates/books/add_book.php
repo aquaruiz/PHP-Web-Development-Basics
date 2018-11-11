@@ -2,8 +2,8 @@
 
 <h1>ADD NEW BOOK</h1>
 
-<p><a href="profile.php">My Profile</a></p>
-<form method="post">
+<p><a href="my_books.php">My Profile</a></p>
+<form method="POST">
     <div>
         <label>
             Book Title: <input type="text" name="title" required="required" minlength="3" maxlength="50"/>
@@ -21,16 +21,16 @@
     </div>
     <div>
         <label>
-            Image URL:<input type="url" name="image_url" required="required"/>
+            Image URL:<input type="url" name="image" required="required"/>
         </label>
     </div>
     <div>
         <label>
-            Genre: <select name="category_id" required="required">
+            Genre: <select name="genre_id" required="required">
                 <option></option>
-<!--                --><?php //foreach ($data->getCategories() as $category): ?>
-<!--                    <option value="--><?//= $category->getId(); ?><!--">--><?//= $category->getName(); ?><!--</option>-->
-<!--                --><?php //endforeach; ?>
+                <?php foreach ($data->getGenres() as $genre): ?>
+                    <option value="<?= $genre->getId(); ?>"><?= $genre->getName(); ?></option>
+                <?php endforeach; ?>
             </select>
         </label>
     </div>

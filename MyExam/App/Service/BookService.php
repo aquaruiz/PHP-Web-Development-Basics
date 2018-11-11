@@ -10,11 +10,11 @@ class BookService implements BookServiceInterface
     /**
      * @var BookRepositoryInterface
      */
-    private $taskRepository;
+    private $bookRepository;
 
-    public function __construct(BookRepositoryInterface $taskRepository)
+    public function __construct(BookRepositoryInterface $bookRepository)
     {
-        $this->taskRepository = $taskRepository;
+        $this->bookRepository = $bookRepository;
     }
 
     /**
@@ -22,7 +22,16 @@ class BookService implements BookServiceInterface
      */
     public function getAll(): \Generator
     {
-       return $this->taskRepository->findAll();
+       return $this->bookRepository->findAll();
+    }
+
+    /**
+     * @return \Generator|BookDTO[]
+     */
+    public function getMine(): \Generator
+    {
+        $myId = $_SESSION['id'];
+        return $this->bookRepository->findAllByUser($myId);
     }
 
     /**
@@ -32,35 +41,35 @@ class BookService implements BookServiceInterface
      */
     public function getOne(int $id): BookDTO
     {
-       $task = $this->taskRepository->findOne($id);
+       $book = $this->bookRepository->findOne($id);
 
-       if($task === null){
-           throw new \Exception("Task not exist!");
+       if($book === null){
+           throw new \Exception("Book not exist!");
        }
 
-       return $task;
+       return $book;
     }
 
-    public function add(BookDTO $taskDTO): bool
+    public function add(BookDTO $bookDTO): bool
     {
-      return $this->taskRepository->insert($taskDTO);
+      return $this->bookRepository->insert($bookDTO);
     }
 
     /**
-     * @param BookDTO $taskDTO
+     * @param BookDTO $bookDTO
      * @param int $id
      * @return bool
      * @throws \Exception
      */
-    public function edit(BookDTO $taskDTO, int $id): bool
+    public function edit(BookDTO $bookDTO, int $id): bool
     {
-        $task = $this->taskRepository->findOne($id);
+        $book = $this->bookRepository->findOne($id);
 
-        if($task === null){
-            throw new \Exception("Task not exist!");
+        if($book === null){
+            throw new \Exception("Book not exist!");
         }
 
-        return $this->taskRepository->update($taskDTO, $id);
+        return $this->bookRepository->update($bookDTO, $id);
     }
 
     /**
@@ -70,12 +79,12 @@ class BookService implements BookServiceInterface
      */
     public function delete(int $id): bool
     {
-        $task = $this->taskRepository->findOne($id);
+        $book = $this->bookRepository->findOne($id);
 
-        if($task === null){
-            throw new \Exception("Task not exist!");
+        if($book === null){
+            throw new \Exception("book not exist!");
         }
 
-        return $this->taskRepository->remove($id);
+        return $this->bookRepository->remove($id);
     }
 }
