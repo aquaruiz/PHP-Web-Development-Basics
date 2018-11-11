@@ -1,4 +1,5 @@
 <?php
-require_once "common.php";
 
-$httpHandler->login($userService, $_POST);
+require_once 'common.php';
+
+$userHttpHandler->login($userService, $_POST);

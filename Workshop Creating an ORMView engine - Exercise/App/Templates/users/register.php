@@ -1,31 +1,37 @@
-<h1>User Registration</h1>
+<h1>USER REGISTER</h1>
 
-<form method="post">
+<form method="POST">
     <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
+        <label> Username:
+            <input type="text" name="username"/>
+        </label>
     </div>
     <div>
-        <label for="password">Password:</label>
-        <input type="text" name="password" required>
+        <label> Password:
+            <input type="password" name="password"/>
+        </label>
     </div>
     <div>
-        <label for="confirm_password">Confirm password:</label>
-        <input type="text" name="confirm_password" required>
+        <label>Confirm Password:
+            <input type="password" name="confirm_password"/>
+        </label>
     </div>
     <div>
-        <label for="first_name">First name:</label>
-        <input type="text" name="firstName">
+        <label>First Name:
+            <input type="text" name="first_name"/>
+        </label>
     </div>
     <div>
-        <label for="last_name">Last name:</label>
-        <input type="text" name="lastName">
+        <label>Last Name:
+            <input type="text" name="last_name"/>
+        </label>
     </div>
     <div>
-        <label for="born_on">Birthday:</label>
-        <input type="text" name="bornOn">
+        <label>Born on:
+            <input type="text" name="born_on"/>
+        </label>
     </div>
     <div>
-        <input type="submit" name="register" value="Register">
+        <input type="submit" name="register" value="Register"/>
     </div>
 </form>

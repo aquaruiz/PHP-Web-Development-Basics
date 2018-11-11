@@ -1,4 +1,3 @@
 <?php
-require_once "common.php";
-
-$httpHandler->allUsers($userService);
+require_once  'common.php';
+$userHttpHandler->allUsers($userService);

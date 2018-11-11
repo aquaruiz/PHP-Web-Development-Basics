@@ -1,4 +1,8 @@
-<?php /** @var \App\Data\ErrorDTO $data */?>
+<?php
+/**
+ * @var \App\Data\ErrorDTO $data
+ */
+?>
+<h1>Ooops, an ERROR occurred! :(</h1>
 
-<h1>Oops, an error occurred :(</h1>
-<p><strong><?=$data->getMessage()?></strong></p>
+<h3><?=$data->getMessage();?></h3>

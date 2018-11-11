@@ -1,33 +1,39 @@
-<?php /** @var \App\Data\UserDTO $data */ ?>
-<h1>Your Profile</h1>
 
-<form method="post">
+<?php
+/**
+ * @var \App\Data\UserDTO $data
+ */
+?>
+<h1>YOUR PROFILE</h1>
+
+<form method="POST">
     <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username" value="<?=$data->getUsername()?>" required>
+        <label> Username:
+            <input type="text" value="<?=$data->getUsername();?>" name="username"/>
+        </label>
     </div>
     <div>
-        <label for="password">Password:</label>
-        <input type="text" name="password" required>
+        <label> Password:
+            <input type="password" required="required" name="password"/>
+        </label>
     </div>
     <div>
-        <label for="confirm_password">Confirm password:</label>
-        <input type="text" name="confirm_password" required>
+        <label>First Name:
+            <input type="text" value="<?=$data->getFirstName();?>" name="first_name"/>
+        </label>
     </div>
     <div>
-        <label for="first_name">First name:</label>
-        <input type="text" name="firstName" value="<?=$data->getFirstName()?>">
+        <label>Last Name:
+            <input type="text" value="<?=$data->getLastName();?>" name="last_name"/>
+        </label>
     </div>
     <div>
-        <label for="last_name">Last name:</label>
-        <input type="text" name="lastName" value="<?=$data->getLastName()?>">
+        <label>Born on:
+            <input type="text" value="<?=$data->getBornOn();?>" name="born_on"/>
+        </label>
     </div>
     <div>
-        <label for="born_on">Birthday:</label>
-        <input type="text" name="bornOn" value="<?=$data->getBornOn()?>">
-    </div>
-    <div>
-        <input type="submit" name="edit" value="Edit profile">
+        <input type="submit" name="edit" value="Edit"/>
     </div>
 </form>
 <p>You can <a href="logout.php">logout</a> or see <a href="all.php">all users</a>.</p>

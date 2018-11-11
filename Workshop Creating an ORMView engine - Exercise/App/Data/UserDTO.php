@@ -3,7 +3,7 @@
 namespace App\Data;
 
 
-class UserDTO
+class UserDTO # Data Transfer Object
 {
     private $id;
     private $username;
@@ -12,15 +12,14 @@ class UserDTO
     private $lastName;
     private $bornOn;
 
-    public static function create($username, $password, $firstName, $lastName, $bornOn, $id = null)
-    {
+    public static function create($username, $password, $firstName, $lastName, $bornOn, $id = null){
         return (new UserDTO())
-            ->setUsername($username)
-            ->setPassword($password)
-            ->setFirstName($firstName)
-            ->setLastName($lastName)
-            ->setBornOn($bornOn)
-            ->setId($id);
+                ->setUsername($username)
+                ->setPassword($password)
+                ->setFirstName($firstName)
+                ->setLastName($lastName)
+                ->setBornOn($bornOn)
+                ->setId($id);
     }
 
     public function getId()

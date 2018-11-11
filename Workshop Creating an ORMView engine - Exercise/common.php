@@ -1,11 +1,14 @@
 <?php
 session_start();
+
 spl_autoload_register();
 
 $template = new \Core\Template();
-$dbData = parse_ini_file('Config/db.ini');
-$pdo = new PDO($dbData['dsn'], $dbData['user'], $dbData['pass']);
+
+$dbInfo = parse_ini_file('Config/db.ini');
+
+$pdo = new PDO($dbInfo['dsn'], $dbInfo['user'], $dbInfo['pass']);
 $db = new \Database\PDODatabase($pdo);
 $userRepository = new \App\Repository\UserRepository($db);
 $userService = new \App\Service\UserService($userRepository);
-$httpHandler = new \App\Http\HttpHandler($template, new \Core\DataBinder());
+$userHttpHandler = new \App\Http\HttpHandler($template);

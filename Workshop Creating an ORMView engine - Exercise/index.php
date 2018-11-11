@@ -1,3 +1,5 @@
 <?php
+
 require_once 'common.php';
-$httpHandler->index();
+
+$userHttpHandler->index($userService);

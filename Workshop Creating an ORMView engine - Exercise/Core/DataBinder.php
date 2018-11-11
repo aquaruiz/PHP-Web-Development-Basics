@@ -2,6 +2,7 @@
 
 namespace Core;
 
+
 class DataBinder implements DataBinderInterface
 {
 
@@ -10,8 +11,8 @@ class DataBinder implements DataBinderInterface
         $classInfo = new \ReflectionClass($className);
         $object = new $className;
 
-        foreach ($form as $key => $value) {
-            if ($classInfo->hasProperty($key)) {
+        foreach ($form as $key=>$value){
+            if($classInfo->hasProperty($key)){
                 $property = $classInfo->getProperty($key);
                 $property->setAccessible(true);
                 $property->setValue($object, $value);
