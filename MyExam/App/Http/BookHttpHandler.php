@@ -90,7 +90,6 @@ class BookHttpHandler extends UserHttpHandlerAbstract
      */
     private function handleInsertProcess($bookService, $userService, $genreService, $formData)
     {
-        var_dump($formData);
         /** @var BookDTO $book */
         $book = $this->dataBinder->bind($formData, BookDTO::class);
         /** @var UserService $userService */
